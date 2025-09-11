@@ -11,7 +11,10 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
-
+const chatClient = StreamChat.getInstance(
+  process.env.STREAM_API_KEY!,
+  process.env.STREAM_API_SECRET!
+)
 
 app.post(
   '/register-user', 
