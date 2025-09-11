@@ -13,8 +13,15 @@ app.use(express.urlencoded({extended: false}))
 app.post(
   '/register-user', 
   async (req: Request, res: Response): Promise<any> => {
-    res.send('Testing')
-})
+    const { name, email } = req.body
+
+    if (!name || !email) {
+      return res.status(400).json({error: 'Name and email are required.'})
+    }
+
+    res.status(200).json({message: 'Success'})
+  }
+)
 
 const PORT = process.env.PORT || 5000
 
