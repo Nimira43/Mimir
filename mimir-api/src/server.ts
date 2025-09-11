@@ -10,6 +10,12 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
+app.post(
+  '/register-user', 
+  async (req: Request, res: Response): Promise<any> => {
+    res.send('Testing')
+})
+
 const PORT = process.env.PORT || 5000
 
 app.listen(PORT, () => console.log(`Server running on ${PORT}`))
