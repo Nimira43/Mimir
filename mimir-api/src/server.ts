@@ -26,6 +26,9 @@ app.post(
     }
 
     try {
+      const userId = email.replace(/[^a-zA-Z0-9_-]/g, '_')
+      console.log(userId)
+
       res.status(200).json({message: 'Success'})
     } catch (error) {
       res.status(500).json({error: 'Internal Server Error.'})
