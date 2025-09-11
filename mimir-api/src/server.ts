@@ -25,7 +25,11 @@ app.post(
       return res.status(400).json({error: 'Name and email are required.'})
     }
 
-    res.status(200).json({message: 'Success'})
+    try {
+      res.status(200).json({message: 'Success'})
+    } catch (error) {
+      res.status(500).json({error: 'Internal Server Error.'})
+    }
   }
 )
 
