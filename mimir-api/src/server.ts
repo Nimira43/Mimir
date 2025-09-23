@@ -31,6 +31,15 @@ app.post(
         id: { $eq: userId }
       })
 
+      if (!userResponse.users.length) {
+        await chatClient.upsertUser({
+          id: userId,
+          name: name,
+          email: email,
+          role: 'user'
+        })
+      }
+
       res.status(200).json({message: 'Success'})
     } catch (error) {
       res.status(500).json({error: 'Internal Server Error.'})
