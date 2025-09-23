@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { StreamChat } from 'stream-chat'
+import OpenAI from 'openai'
 
 dotenv.config()
 
