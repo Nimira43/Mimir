@@ -27,7 +27,9 @@ app.post(
 
     try {
       const userId = email.replace(/[^a-zA-Z0-9_-]/g, '_')
-      console.log(userId)
+      const userResponse = await chatClient.queryUsers({
+        id: { $eq: userId }
+      })
 
       res.status(200).json({message: 'Success'})
     } catch (error) {
