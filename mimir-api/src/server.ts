@@ -56,6 +56,10 @@ app.post(
   }
 )
 
+app.post('/chat', async (req: Request, res: Response): Promise<any> => {
+  
+})
+
 const PORT = process.env.PORT || 5000
 
 app.listen(PORT, () => console.log(`Server running on ${PORT}`))
