@@ -17,6 +17,10 @@ const chatClient = StreamChat.getInstance(
   process.env.STREAM_API_SECRET!
 )
 
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+})
+
 app.post(
   '/register-user', 
   async (req: Request, res: Response): Promise<any> => {
