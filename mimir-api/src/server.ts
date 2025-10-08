@@ -58,6 +58,12 @@ app.post(
 
 app.post('/chat', async (req: Request, res: Response): Promise<any> => {
   const { message, userId } = req.body
+
+  if (!message || !userId) {
+    return res.status(400).json({
+      error: 'Message and user are required.'
+    })
+  }
 })
 
 const PORT = process.env.PORT || 5000
