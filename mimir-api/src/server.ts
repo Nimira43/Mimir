@@ -57,7 +57,7 @@ app.post(
 )
 
 app.post('/chat', async (req: Request, res: Response): Promise<any> => {
-  
+  const { message, userId } = req.body
 })
 
 const PORT = process.env.PORT || 5000
