@@ -66,7 +66,14 @@ app.post('/chat', async (req: Request, res: Response): Promise<any> => {
   }
 
   try {
-    
+    const userResponse = await chatClient.queryUsers({
+      id: userId
+    })
+
+    if (!userResponse.users.length) {
+      return res.status(404).json({error: 'User not found. Please register first.'})
+    }
+
   } catch (error) {
     return res.status(500).json({
       error: 'Internal server error.'    
