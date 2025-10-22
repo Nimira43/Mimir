@@ -64,6 +64,13 @@ app.post('/chat', async (req: Request, res: Response): Promise<any> => {
       error: 'Message and user are required.'
     })
   }
+
+  try {
+    
+  } catch (error) {
+    return res.status(500).json({
+      error: 'Internal server error.'    
+  }
 })
 
 const PORT = process.env.PORT || 5000
