@@ -27,7 +27,8 @@ app.post(
     const { name, email } = req.body
 
     if (!name || !email) {
-      return res.status(400).json({error: 'Name and email are required.'})
+      return res
+        .status(400).json({error: 'Name and email are required.'})
     }
 
     try {
@@ -51,7 +52,9 @@ app.post(
 
 
     } catch (error) {
-      res.status(500).json({error: 'Internal Server Error.'})
+      res.status(500).json({
+        error: 'Internal Server Error.'
+      })
     }
   }
 )
@@ -71,13 +74,20 @@ app.post('/chat', async (req: Request, res: Response): Promise<any> => {
     })
 
     if (!userResponse.users.length) {
-      return res.status(404).json({error: 'User not found. Please register first.'})
+      return res.status(404).json({
+        error: 'User not found. Please register first.'
+      })
     }
+
+    const response = await openai.chat.completions.create(create({
+      
+    }))
 
   } catch (error) {
     return res.status(500).json({
-      error: 'Internal server error.'    
-  }
+      error: 'Internal server error.'
+    })
+  }  
 })
 
 const PORT = process.env.PORT || 5000
