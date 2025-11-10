@@ -79,9 +79,13 @@ app.post('/chat', async (req: Request, res: Response): Promise<any> => {
       })
     }
 
-    const response = await openai.chat.completions.create(create({
-      
-    }))
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4',
+      messages: [{ role: 'user', content: message}]
+    })
+
+    console.log(response)
+    res.send('success')
 
   } catch (error) {
     return res.status(500).json({
