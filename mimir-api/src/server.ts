@@ -74,9 +74,11 @@ app.post('/chat', async (req: Request, res: Response): Promise<any> => {
     })
 
     if (!userResponse.users.length) {
-      return res.status(404).json({
-        error: 'User not found. Please register first.'
-      })
+      return res
+        .status(404)
+        .json({
+          error: 'User not found. Please register first.'
+        })
     }
 
     const response = await openai.chat.completions.create({
