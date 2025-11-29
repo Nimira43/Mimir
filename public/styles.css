@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Petit+Formal+Script&display=swap');
+
+* {
+  font-family: 'Mulish', sans-serif;
+  font-weight: 300;
+}
+
+.logo {
+  font-family: 'Petit Formal-Script', cursive;
+}
